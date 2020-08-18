@@ -1,0 +1,102 @@
+{
+  "name": "storybook-npm",
+  "version": "0.1.0",
+  "description": "Reusable components library with storybook",
+  "main": "dist/src/index.js",
+  "private": false,
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.2",
+    "styled-jsx": "^3.3.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "npm run build:css && start-storybook -p 9009 -s public",
+    "clean": "rm -rf ./dist",
+    "prebuild": "yarn clean",
+    "build": "npm run build:css && tsc --build \"./tsconfig.json\"",
+    "copy-files": "copyfiles -u 1 src/style/*.scss dist/",
+    "postbuild": "yarn run copy-files",
+    "test": "react-scripts test",
+    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
+    "eject": "react-scripts eject",
+    "build-storybook": "build-storybook",
+    "build:css": "postcss src/style/tailwind.scss -c tailwind.config.js -o src/style/index.scss "
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependency": {
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@storybook/addon-actions": "^6.0.3",
+    "@storybook/addon-essentials": "^6.0.3",
+    "@storybook/addon-knobs": "^6.0.3",
+    "@storybook/addon-links": "^6.0.3",
+    "@storybook/node-logger": "^6.0.3",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/styled-jsx": "^2.2.8",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "copyfiles": "^2.3.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.1",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "react-is": "^16.13.1",
+    "storybook-readme": "^5.0.8",
+    "styled-jsx-plugin-postcss": "^2.0.1",
+    "styled-jsx-plugin-sass": "^1.0.0",
+    "tailwindcss": "^1.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sabio-aprendiz/react-story-jsx.git"
+  },
+  "author": "Maneesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sabio-aprendiz/react-story-jsx/issues"
+  },
+  "homepage": "https://gitlab.com/max-life-products/design-library-storybook#readme"
+}
